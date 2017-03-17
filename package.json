@@ -1,0 +1,25 @@
+{
+  "name": "tripplanner",
+  "version": "1.0.0",
+  "description": "plan a fun vaycay to nyc",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": ""
+  },
+  "keywords": [
+    "fun",
+    "fullstack",
+    "nyc",
+    "js"
+  ],
+  "author": "1702GH",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
+  }
+}
