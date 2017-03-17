@@ -2,16 +2,18 @@
 // The data can then be loaded with the node seed.js
 
 var Promise = require('bluebird');
-var db = require('./models').db;
+var db = require('./models')
 // var Place = require('./models/place');
-var Place = require('./models').Place;
+var Place = require('./models/places')
 // var Hotel = require('./models/hotel');
-var Hotel = require('./models').Hotel;
+var Hotel = require('./models/hotels')
 // var Restaurant = require('./models/restaurant');
-var Restaurant = require('./models').Restaurant;
+var Restaurant = require('./models/restaurants')
 // var Activity = require('./models/activity');
-var Activity = require('./models').Activity;
+var Activity = require('./models/activities')
 
+
+console.log('aaaa', db)
 var data = {
     hotels: [{
             name: "Andaz Wall Street",
@@ -549,16 +551,19 @@ db.sync({
     .then(function() {
         console.log("Dropped old data, now inserting data");
         const creatingHotels = Promise.map(data.hotels, function(hotel) {
+            console.log('hoootels', hotel.name)
             return Hotel.create(hotel, {
                 include: [Place]
             });
         });
         const creatingRestaurants = Promise.map(data.restaurants, function(restaurant) {
+            console.log('resstaurants')
             return Restaurant.create(restaurant, {
                 include: [Place]
             });
         });
         const creatingActivities = Promise.map(data.activities, function(activity) {
+            console.log('aacctivitiesss')
             return Activity.create(activity, {
                 include: [Place]
             });
