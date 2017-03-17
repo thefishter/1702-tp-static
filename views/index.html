@@ -13,38 +13,63 @@
         <div class="navbar" role="navigation">
             <a href="/"><h1>Trip Planner</h1></a>
             <ul id="nav-items">
-                <a href="/"><li>About</li></a>
-                <a href="/"><li>Contact</li></a>
+                <a href="/">
+                    <li>About</li>
+                </a>
+                <a href="/">
+                    <li>Contact</li>
+                </a>
             </ul>
         </div>
+        <select>Hotels
+          {% for hotel in hotels %}
+          <option>{{hotel.name}}</option>
+          {% endfor %}
+        </select>
+        <select>Activities
+          {% for activity in activities %}
+          <option>{{activity.name}}</option>
+          {% endfor %}
+        </select>
+        <select>Restaurants
+          {% for restaurant in restaurants %}
+          <option>{{restaurants.name}}</option>
+          {% endfor %}
+        </select>
         <div class="container">
             <div id="map" class="col-lg-6">
-                <img src= "http://www.drodd.com/images13/new-york-map23.jpg"/>
+                <img src="http://www.drodd.com/images13/new-york-map23.jpg" />
             </div>
             <div id="itinerary" class="col-lg-6">
                 <div id="date" class="text header">
                     <h2>Friday, March 17th</h2>
-                <hr>
-                <div id="day" class="text header">
-                    <h3>Day 1</h3>
-                <div class="plans">
-                    <ul id="hotel">
-                        <li><h4>My Hotel</h4></li>
-                        <li>{{$hotel}}Hilton Inn on Blah Street</li>
-                    </ul>
                 </div>
-                <div class="plans">
-                    <ul id="restaurants">
-                        <li><h4>My Restaurants</h4></li>
-                        <li>{{$restaurants}}McDonalds Times Square</li>
-                    </ul>
-                </div>
-                <div class="plans">
-                    <ul id="activities">
-                        <li><h4>My Activities</h4></li>
-                        <li>{{$activities}}Riding the Subway</li>
-                    </ul>
-                </div>
+            </div>
+            <hr>
+            <div id="day" class="text header">
+                <h3>Day 1</h3>
+            </div>
+            <div class="plans">
+                <ul id="hotel">
+                    <li>
+                        <h4>My Hotel</h4></li>
+                    <li>{{$hotel}}Hilton Inn on Blah Street</li>
+                </ul>
+            </div>
+            <div class="plans">
+                <ul id="restaurants">
+                    <li>
+                        <h4>My Restaurants</h4></li>
+                    <li>{{$restaurants}}McDonalds Times Square</li>
+                </ul>
+            </div>
+            <div class="plans">
+                <ul id="activities">
+                    <li>
+                        <h4>My Activities</h4></li>
+                    <li>{{$activities}}Riding the Subway</li>
+                </ul>
+            </div>
         </div>
         <script src="/bootstrap/js/bootstrap.min.js"></script>
         <script src="/jquery/jquery.min.js"></script>

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var morgan = require('morgan');
 var routes = require('./routes');
+var db = require('./models').db;
 
 var app = express();
 
@@ -18,10 +19,18 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.engine('html', nunjucks.render);
-nunjucks.configure({ noCache: true });
+nunjucks.configure({
+    noCache: true
+});
 app.set('view engine', 'html');
 
 app.use('/', routes);
+
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
 app.use(function(err, req, res, next) {
     console.error(err)
