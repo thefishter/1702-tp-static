@@ -1,17 +1,27 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var nunjucks = require('nunjucks');
 var morgan = require('morgan');
+var routes = require('./routes');
 
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
-app.use(morgan('dev'))
+app.engine('html', nunjucks.render);
+nunjucks.configure({ noCache: true });
+app.set('view engine', 'html');
+
+app.use('/', routes);
 
 app.use(function(err, req, res, next) {
     console.error(err)

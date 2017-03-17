@@ -2,6 +2,7 @@
 <html>
 
     <head>
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,19 +11,43 @@
 
     <body>
         <div class="navbar" role="navigation">
-            <h1>Trip Planner</h1>
+            <a href="/"><h1>Trip Planner</h1></a>
             <ul id="nav-items">
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
+                <a href="/"><li>About</li></a>
+                <a href="/"><li>Contact</li></a>
             </ul>
         </div>
         <div class="container">
-            <div id="map" class="col-lg-9">
+            <div id="map" class="col-lg-6">
+                <img src= "http://www.drodd.com/images13/new-york-map23.jpg"/>
             </div>
-
+            <div id="itinerary" class="col-lg-6">
+                <div id="date" class="text header">
+                    <h2>Friday, March 17th</h2>
+                <hr>
+                <div id="day" class="text header">
+                    <h3>Day 1</h3>
+                <div class="plans">
+                    <ul id="hotel">
+                        <li><h4>My Hotel</h4></li>
+                        <li>{{$hotel}}Hilton Inn on Blah Street</li>
+                    </ul>
+                </div>
+                <div class="plans">
+                    <ul id="restaurants">
+                        <li><h4>My Restaurants</h4></li>
+                        <li>{{$restaurants}}McDonalds Times Square</li>
+                    </ul>
+                </div>
+                <div class="plans">
+                    <ul id="activities">
+                        <li><h4>My Activities</h4></li>
+                        <li>{{$activities}}Riding the Subway</li>
+                    </ul>
+                </div>
         </div>
-
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/jquery/jquery.min.js"></script>
     </body>
 
 </html>
